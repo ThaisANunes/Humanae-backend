@@ -48,6 +48,7 @@ public class UsuarioService {
 				user.get().setImagem(usuario.get().getImagem());
 				user.get().setCausa(usuario.get().getCausa());
 				user.get().setDescricao(usuario.get().getDescricao());
+				user.get().setTipo(usuario.get().getTipo());
 								
 				return user;
 			}
