@@ -35,6 +35,10 @@ public class Produtos {
 	@NotNull
 	@Size(min = 5, max = 255)
 	private String descricao;
+
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Categoria categoria;
 	
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
@@ -89,6 +93,14 @@ public class Produtos {
 		this.descricao = descricao;
 	}
 
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -97,5 +109,4 @@ public class Produtos {
 		this.usuario = usuario;
 	}
 
-	
 }

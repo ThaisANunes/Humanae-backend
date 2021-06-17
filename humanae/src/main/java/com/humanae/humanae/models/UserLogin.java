@@ -16,16 +16,15 @@ public class UserLogin {
 	
 	private String tipo;
 	
-	private Categoria causa;
+	private String causa;
 	
 	private String descricao;
 
-	
-	public Categoria getCausa() {
+	public String getCausa() {
 		return causa;
 	}
 
-	public void setCausa(Categoria causa) {
+	public void setCausa(String causa) {
 		this.causa = causa;
 	}
 

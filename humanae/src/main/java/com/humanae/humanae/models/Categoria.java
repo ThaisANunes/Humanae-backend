@@ -27,8 +27,8 @@ public class Categoria {
 	
 	@OneToMany(mappedBy = "categoria",cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
-	private List<Usuario> usuario;
-	
+	private List<Produtos> produto;
+
 	public long getId() {
 		return id;
 	}
@@ -41,16 +41,16 @@ public class Categoria {
 		return nome;
 	}
 
-	public List<Usuario> getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(List<Usuario> usuario) {
-		this.usuario = usuario;
-	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public List<Produtos> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produtos> produto) {
+		this.produto = produto;
 	}
 	
 }

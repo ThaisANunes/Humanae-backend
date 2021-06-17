@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.humanae.humanae.models.Produtos;
-import com.humanae.humanae.models.Usuario;
 import com.humanae.humanae.repositories.ProdutosRepository;
 
 @RestController
@@ -34,11 +33,10 @@ public class ProdutosController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Produtos> findById(@PathVariable long id) {
-		return	repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<Optional<Produtos>> findByIdProdutos(@PathVariable long id) {
+		return ResponseEntity.status(200).body(repository.findById(id));
 	}
-
-	
+	 
 	@GetMapping("/descricao/{descricao}")
 	public ResponseEntity<List<Produtos>> findAllByDescricao(@PathVariable String descricao) {
 		return ResponseEntity.status(200).body(repository.findAllByDescricaoContainingIgnoreCase(descricao));

@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -33,6 +31,8 @@ public class Usuario {
 	@NotNull
 	private String senha;
 
+	private String causa;
+
 	private String descricao;
 
 	private String cnpj;
@@ -44,11 +44,6 @@ public class Usuario {
 	private String imagem;
 	
 	private String tipo;
-	
-	@ManyToOne
-	@JsonIgnoreProperties("usuario")
-	@JoinColumn(name="id_categoria")
-	private Categoria causa;
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
@@ -86,11 +81,11 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public Categoria getCausa() {
+	public String getCausa() {
 		return causa;
 	}
 
-	public void setCausa(Categoria causa) {
+	public void setCausa(String causa) {
 		this.causa = causa;
 	}
 
